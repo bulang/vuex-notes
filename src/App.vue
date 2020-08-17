@@ -1,17 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <show :number = "num" />
+    <active @add="add" @reduce="reduce"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import show from '@/components/show.vue'
+import active from '@/components/active.vue'
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      num: 132
+    }
+  },
+  components:{
+    show,
+    active
+  },
+  methods:{
+    add(number){
+      this.num = this.num + number;
+    },
+    reduce(number){
+      this.num = this.num - number;
+    }
   }
 }
 </script>

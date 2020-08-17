@@ -30,6 +30,30 @@ const store = new Vuex.Store({
         },
         reduce:(state, payload)=>{
             state.number-=payload.gap;
+        },
+        log:(state, msg)=>{
+            console.log(msg)
+        }
+    },
+    actions:{
+        toLog:({dispatch}, msg)=>{
+           dispatch('promiseLog',msg).then(()=>{
+               console.log('success');
+           }).catch(()=>{
+               console.log('error');
+           })
+        },
+        promiseLog:({commit},msg)=>{
+            return new Promise((resolve, reject)=>{
+                const i = ~~(Math.random()*10);
+                console.log(i)
+                if(i<5){
+                    commit('log',msg)
+                    resolve();
+                }else{
+                    reject();
+                }
+            });
         }
     }
 })

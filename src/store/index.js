@@ -23,6 +23,14 @@ const store = new Vuex.Store({
         getCustomInfo:state => index => {
             return `my name is ${state.infos[index]['name']}, ${state.infos[index]['sex']}`;
         }
+    },
+    mutations:{
+        add:(state, payload)=>{
+            state.number+=payload.gap;
+        },
+        reduce:(state, payload)=>{
+            state.number-=payload.gap;
+        }
     }
 })
 

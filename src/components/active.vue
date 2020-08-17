@@ -1,20 +1,16 @@
 <template>
     <div>
-        <button @click="add(5)">+5</button>
-        <button @click="reduce(4)">-4</button>
+        <button @click="add({gap:5})">+5</button>
+        <button @click="reduce({gap:4})">-4</button>
     </div>
 </template>
 
 <script>
+    import { mapMutations } from 'vuex';
     export default {
        name:"active",
        methods: {
-           add(number){
-               this.$emit('add', number);
-           },
-           reduce(number){
-               this.$emit('reduce', number);
-           }
+           ...mapMutations(['add', 'reduce'])
        }, 
     }
 </script>

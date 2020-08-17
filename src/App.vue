@@ -1,31 +1,25 @@
 <template>
   <div id="app">
-    <show :number = "num" />
-    <active @add="add" @reduce="reduce"/>
+    <show />
+    <active />
+    <todoList />
   </div>
 </template>
 
 <script>
 import show from '@/components/show.vue'
 import active from '@/components/active.vue'
+import todoList from '@/components/todoList.vue'
 export default {
   name: 'App',
   data() {
     return {
-      num: 132
     }
   },
   components:{
     show,
-    active
-  },
-  methods:{
-    add(number){
-      this.num = this.num + number;
-    },
-    reduce(number){
-      this.num = this.num - number;
-    }
+    active,
+    todoList
   }
 }
 </script>

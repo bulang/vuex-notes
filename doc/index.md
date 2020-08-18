@@ -1,3 +1,4 @@
+> Demo地址: [https://github.com/bulang/vuex-notes](https://github.com/bulang/vuex-notes)
 ### Vuex
 > 概念
 
@@ -44,7 +45,7 @@
 
 第一个参数为`state`，第二个参数为自定的参数`payload`；
 
-使用使用同步方式操作`state`，否则异步数据挖法追踪导致`devtools`里面的记录的历史快照会出问题；
+使用同步方式操作`state`，否则由于异步数据无法追踪导致`devtools`记录的历史快照会出问题；
 
 ```javascript
 // 例：
@@ -173,3 +174,10 @@ getters:{
 #### `Module`
 
 当项目足够大的时候，所有的`state`，`mutaions`，`actions`，`getters`放到一个文件里面会非常难维护，所以我们需要把`state`，`mutaions`，`actions`，`getters`分别提出来放到各自的文件并导出。
+1. 每个模块里面有各自的`state`，`mutaions`，`actions`，`getters`文件;
+2. 每个模块有一个`index.js`文件统一导出所有方法;
+3. 导出模块时可以指定是否使用命名空间，这样可以在组建中指定对应的模块来执行对应的操作;
+4. 在`store`的入口文件导入所有模块儿;
+5. 实例化`Store`时在`modules`里面传入模块;
+6. 使用辅助函数时，如果声明了使用命名空间，可以给辅助函数的第一个参数传入指定模块;
+   

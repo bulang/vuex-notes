@@ -19,3 +19,6 @@ yarn build
 ```
 yarn lint
 ```
+### 笔记
+
+[https://github.com/bulang/vuex-notes/doc/index.md](https://github.com/bulang/vuex-notes/doc/../../../../../doc/index.md)
